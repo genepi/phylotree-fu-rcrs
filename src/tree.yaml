@@ -1,9 +1,9 @@
 id: phylotree-fu-rcrs
-version: 17.0
+version: 1.0
 name: PhyloTree 17 - Forensic Update
 category: rCRS (Human mtDNA)
 description: Refined Phylotree 17 by Duer et al., revised version after minor issues, including 6,380 haplogroups (6,401 in publication)
-url: https://github.com/genepi/haplogrep3/data/trees/phylotree/17-fu
+url: https://github.com/genepi/phylotree-fu-rcrs
 lastUpdate: 2021/11/29
 tree: tree.xml
 weights: weights.txt
@@ -64,4 +64,5 @@ genes:
  - "TRNT"
  - "TRNP"
 source:
-  - "Publication: https://www.mdpi.com/1422-0067/22/11/5747"
+  - "Weissensteiner H, Pacher D, Kloss-Brandstätter A, Forer L, Specht G, Bandelt HJ, Kronenberg F, Salas A, Schönherr S. HaploGrep 2: mitochondrial haplogroup classification in the era of high-throughput sequencing. Nucleic Acids Res. 2016 Jul 8;44(W1):W58-63. doi: 10.1093/nar/gkw233. Epub 2016 Apr 15. PMID: 27084951; PMCID: PMC4987869."
+  - "Dür A, Huber N, Parson W. Fine-Tuning Phylogenetic Alignment and Haplogrouping of mtDNA Sequences. Int J Mol Sci. 2021 May 27;22(11):5747. doi: 10.3390/ijms22115747. PMID: 34072215; PMCID: PMC8198973."
