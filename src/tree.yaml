@@ -69,9 +69,10 @@ source:
 labels:
   filename: labels.txt
   groups:
-    - oneletter
-    - MacroPhylo
-    - Hgsubgroup
+    - Macro-Haplogroup
+    - Phylotree-Subtree
+    - Macro-Clade
+    - Clade
 template: annotations/template.html
 annotations:
   - filename: annotations/MitImpact_db_3.1.0.sorted.txt.gz
