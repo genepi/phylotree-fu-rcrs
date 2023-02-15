@@ -66,3 +66,35 @@ genes:
 source:
   - "Weissensteiner H, Pacher D, Kloss-Brandstätter A, Forer L, Specht G, Bandelt HJ, Kronenberg F, Salas A, Schönherr S. HaploGrep 2: mitochondrial haplogroup classification in the era of high-throughput sequencing. Nucleic Acids Res. 2016 Jul 8;44(W1):W58-63. doi: 10.1093/nar/gkw233. Epub 2016 Apr 15. PMID: 27084951; PMCID: PMC4987869."
   - "Dür A, Huber N, Parson W. Fine-Tuning Phylogenetic Alignment and Haplogrouping of mtDNA Sequences. Int J Mol Sci. 2021 May 27;22(11):5747. doi: 10.3390/ijms22115747. PMID: 34072215; PMCID: PMC8198973."
+labels:
+  filename: labels.txt
+  groups:
+    - oneletter
+    - MacroPhylo
+    - Hgsubgroup
+template: annotations/template.html
+annotations:
+  - filename: annotations/MitImpact_db_3.1.0.sorted.txt.gz
+    refAllele: Ref
+    altAllele: Alt
+    chr: chrM
+    properties:
+      - name: Gene
+        column: Gene_symbol
+      - name:  Gnomad31 AF hom
+        column: Gnomad31_AF_hom
+      - name: Gnomad31 AF het
+        column: Gnomad31_AF_het
+  - filename: annotations/rCRS_annotation_2023-02-15_2.txt.gz
+    refAllele: Ref
+    altAllele: Alt
+    chr: chrM
+    properties:
+      - name: Sequences
+        column: rCRS_Surr_seq
+      - name: Maplocus
+        column: Maplocus
+        show: true
+      - name: AAA
+        column: AAC
+        show: true
