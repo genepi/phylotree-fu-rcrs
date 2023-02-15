@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="card">
+      <div class="card mt-3"">
         <div class="card-body">
           <b>Gene:</b> {{annotations.Gene_symbol}}<br>
           <br><b>Sequence:</b>
@@ -13,20 +13,20 @@
     </div>
 
     <div class="col-12 col-md-6">
-      <div class="card">
+      <div class="card mt-3">
         <div class="card-header">
           Allele frequency in gnomAD 3.1
         </div>
         <div class="card-body">
-          {{if annotations.Gnomad31_AF_hom != null && annotations.Gnomad31_AF_het != null}}
-          <b>Homoplasmic AF:</b> {{annotations.Gnomad31_AF_hom}}<br>
+          {{if annotations.AF_hom != null && annotations.AF_het != null}}
+          <b>Homoplasmic AF:</b> {{formatNumber(toNumber(annotations.AF_hom))}}<br>
           <div class="progress" style="height: 5px;">
-            <div role="progressbar" aria-valuenow="{{annotations.Gnomad31_AF_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Gnomad31_AF_hom) * 100}}%;">
+            <div role="progressbar" aria-valuenow="{{annotations.AF_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_hom) * 100}}%;">
             </div>
-          </div>
-          <b>Heteroplasmic AF:</b> {{annotations.Gnomad31_AF_het}}<br>
+          </div><br>
+          <b>Heteroplasmic AF:</b> {{formatNumber(toNumber(annotations.AF_het))}}<br>
           <div class="progress" style="height: 5px;">
-            <div role="progressbar" aria-valuenow="{{annotations.Gnomad31_AF_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Gnomad31_AF_het) * 100}}%;">
+            <div role="progressbar" aria-valuenow="{{annotations.AF_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_het) * 100}}%;">
             </div>
           </div>
           {{else}}

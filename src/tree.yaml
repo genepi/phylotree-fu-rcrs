@@ -81,10 +81,6 @@ annotations:
     properties:
       - name: Gene
         column: Gene_symbol
-      - name:  Gnomad31 AF hom
-        column: Gnomad31_AF_hom
-      - name: Gnomad31 AF het
-        column: Gnomad31_AF_het
   - filename: annotations/rCRS_annotation_2023-02-15.txt.gz
     refAllele: Ref
     altAllele: Alt
@@ -98,3 +94,12 @@ annotations:
       - name: AAC
         column: AAC
         show: true
+  - filename: annotations/gnomad.genomes.v3.1.sites.chrM.reduced_annotations.tsv.gz
+    refAllele: Ref
+    altAllele: Alt
+    chr: chrM
+    properties:
+      - name: AF_hom
+        column: AF_hom
+      - name: AF_het
+        column: AF_het
