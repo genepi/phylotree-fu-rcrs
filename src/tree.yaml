@@ -95,6 +95,6 @@ annotations:
       - name: Maplocus
         column: Maplocus
         show: true
-      - name: AAA
+      - name: AAC
         column: AAC
         show: true
