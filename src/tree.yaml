@@ -85,7 +85,7 @@ annotations:
         column: Gnomad31_AF_hom
       - name: Gnomad31 AF het
         column: Gnomad31_AF_het
-  - filename: annotations/rCRS_annotation_2023-02-15_2.txt.gz
+  - filename: annotations/rCRS_annotation_2023-02-15.txt.gz
     refAllele: Ref
     altAllele: Alt
     chr: chrM
