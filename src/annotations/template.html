@@ -22,7 +22,8 @@
       </div>
       <div class="card-body">
         <b>Haplogroup Defining:</b> TODO<br>
-        <b>Haplogroups:</b> TODO
+        <b>Haplogroups:</b>
+        {{annotations.Helix_haplogroups_homoplasmy}}
       </div>
     </div>
     {{end}}
@@ -80,6 +81,7 @@
         <b>PhastCons_100V:</b> {{if annotations.PhastCons_100V != null}}{{annotations.PhastCons_100V}}{{else}}-{{end}}<br>
         <b>APOGEE:</b>{{if annotations.APOGEE != null}} {{annotations.APOGEE}} ({{annotations.APOGEE_score}}){{else}}-{{end}} <a href="https://mitimpact.css-mendel.it/description#apogee" target="_blank"><i class="fas fa-question-circle"></i></a><br>
         <b>MtoolBox:</b>{{if annotations.MtoolBox != null}} {{annotations.MtoolBox}} ({{annotations.MtoolBox_DS}}){{else}}-{{end}}<br>
+        <b>MutPred:</b>{{if annotations.MutPred_Score != null}} {{annotations.MutPred_Score}}{{else}}-{{end}} <a href="https://www.sciencedirect.com/science/article/pii/S000292971100098X" target="_blank"><i class="fas fa-question-circle"></i></a><br>
         <div class="text-right" style="margin-top: 5px;">
           <small>Source: <a href="https://mitimpact.css-mendel.it/" target="_blank">Mitimpact 3D</a></small>
         </div>
