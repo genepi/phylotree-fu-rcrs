@@ -95,6 +95,12 @@ annotations:
       - name: AAC
         column: AAC
         show: true
+      - name: Helix_vaf_het
+        column: Helix_vaf_het
+      - name: Helix_vaf_hom
+        column: Helix_vaf_hom
+      - name: Category
+        column: Category                        
   - filename: annotations/gnomad.genomes.v3.1.sites.chrM.reduced_annotations.tsv.gz
     refAllele: Ref
     altAllele: Alt
