@@ -74,12 +74,12 @@
     </div>
     <div class="card mt-3"">
       <div class="card-header">
-        Scores
+        Functional Predictions
       </div>
       <div class="card-body">
-        <b>Score1:</b> TODO<br>
-        <b>Score2:</b> TODO<br>
-        <b>Score3:</b> TODO<br>
+        <b>PhastCons_100V:</b> {{if annotations.PhastCons_100V != null}}{{annotations.PhastCons_100V}}{{else}}-{{end}}<br>
+        <b>APOGEE:</b>{{if annotations.APOGEE != null}} {{annotations.APOGEE}} ({{annotations.APOGEE_score}}){{else}}-{{end}} <a href="https://mitimpact.css-mendel.it/description#apogee" target="_blank"><i class="fas fa-question-circle"></i></a><br>
+        <b>MtoolBox:</b>{{if annotations.MtoolBox != null}} {{annotations.MtoolBox}} ({{annotations.MtoolBox_DS}}){{else}}-{{end}}<br>
         <div class="text-right" style="margin-top: 5px;">
           <small>Source: <a href="https://mitimpact.css-mendel.it/" target="_blank">Mitimpact 3D</a></small>
         </div>

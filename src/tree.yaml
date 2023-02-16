@@ -82,7 +82,18 @@ annotations:
     properties:
       - name: Gene
         column: Gene_symbol
-  - filename: annotations/rCRS_annotation_2023-02-15.txt.gz
+      - name: PhastCons_100V
+        column: PhastCons_100V
+      - name: MtoolBox
+        column: MtoolBox
+      - name: MtoolBox_DS
+        column: MtoolBox_DS
+      - name: APOGEE_score
+        column: APOGEE_score
+      - name: APOGEE
+        column: APOGEE
+
+  - filename: annotations/rCRS_annotation_2023-02-16.txt.gz
     refAllele: Ref
     altAllele: Alt
     chr: chrM
@@ -100,7 +111,7 @@ annotations:
       - name: Helix_vaf_hom
         column: Helix_vaf_hom
       - name: Category
-        column: Category                        
+        column: Category
   - filename: annotations/gnomad.genomes.v3.1.sites.chrM.reduced_annotations.tsv.gz
     refAllele: Ref
     altAllele: Alt
