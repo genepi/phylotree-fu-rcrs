@@ -92,7 +92,15 @@ annotations:
         column: APOGEE_score
       - name: APOGEE
         column: APOGEE
-
+  - filename: annotations/gnomad.frequencies.txt.gz
+    refAllele: Ref
+    altAllele: Alt
+    chr: chrM
+    properties:
+      - name: hapCounts
+        column: hapCounts
+      - name: popCounts
+        column: popCounts
   - filename: annotations/rCRS_annotation_2023-02-16.txt.gz
     refAllele: Ref
     altAllele: Alt

@@ -18,12 +18,24 @@
     {{if minimal == false}}
     <div class="card mt-3"">
       <div class="card-header">
-        {{phylotree}}
+        Haplogroup Frequencies
       </div>
       <div class="card-body">
-        <b>Haplogroup Defining:</b> TODO<br>
-        <b>Haplogroups:</b>
+        <b>Haplogroup Defining</b> <small>({{phylotree}})</small><br>TODO<br>
+        <hr>
+        <b>GnomAD:</b><br>
+        {{annotations.hapCounts}}<br><br>
+        <b>Helix Mitochondrial database:</b><br>
         {{annotations.Helix_haplogroups_homoplasmy}}
+      </div>
+    </div>
+    <div class="card mt-3"">
+      <div class="card-header">
+        Population Frequencies
+      </div>
+      <div class="card-body">
+        <b>GnomAD:</b><br>
+        {{annotations.popCounts}}
       </div>
     </div>
     {{end}}
@@ -79,9 +91,9 @@
       </div>
       <div class="card-body">
         <b>PhastCons_100V:</b> {{if annotations.PhastCons_100V != null}}{{annotations.PhastCons_100V}}{{else}}-{{end}}<br>
-        <b>APOGEE:</b>{{if annotations.APOGEE != null}} {{annotations.APOGEE}} ({{annotations.APOGEE_score}}){{else}}-{{end}} <a href="https://mitimpact.css-mendel.it/description#apogee" target="_blank"><i class="fas fa-question-circle"></i></a><br>
-        <b>MtoolBox:</b>{{if annotations.MtoolBox != null}} {{annotations.MtoolBox}} ({{annotations.MtoolBox_DS}}){{else}}-{{end}}<br>
-        <b>MutPred:</b>{{if annotations.MutPred_Score != null}} {{annotations.MutPred_Score}}{{else}}-{{end}} <a href="https://www.sciencedirect.com/science/article/pii/S000292971100098X" target="_blank"><i class="fas fa-question-circle"></i></a><br>
+        <b>APOGEE:</b> {{if annotations.APOGEE != null}} {{annotations.APOGEE}} ({{annotations.APOGEE_score}}){{else}}-{{end}} <a href="https://mitimpact.css-mendel.it/description#apogee" target="_blank"><i class="fas fa-question-circle"></i></a><br>
+        <b>MtoolBox:</b> {{if annotations.MtoolBox != null}} {{annotations.MtoolBox}} ({{annotations.MtoolBox_DS}}){{else}}-{{end}}<br>
+        <b>MutPred:</b> {{if annotations.MutPred_Score != null && annotations.MutPred_Score != ""}} {{annotations.MutPred_Score}}{{else}}-{{end}} <a href="https://www.sciencedirect.com/science/article/pii/S000292971100098X" target="_blank"><i class="fas fa-question-circle"></i></a><br>
         <div class="text-right" style="margin-top: 5px;">
           <small>Source: <a href="https://mitimpact.css-mendel.it/" target="_blank">Mitimpact 3D</a></small>
         </div>
