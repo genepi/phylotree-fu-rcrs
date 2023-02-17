@@ -21,21 +21,22 @@
         Haplogroup Frequencies
       </div>
       <div class="card-body">
-        <b>Haplogroup Defining</b> <small>({{phylotree}})</small><br>TODO<br>
-        <hr>
+        <b>Haplogroup Defining:</b> Yes<br><br>
         <b>GnomAD:</b><br>
-        {{annotations.hapCounts}}<br><br>
+        {{if annotations.hapCounts != null}}
+        <table id="table-gnomad-frequencies"></table>
+        <canvas id="plot-gnomad-frequencies" style="max-height: 150px;"></canvas>
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
+        <br><br>
         <b>Helix Mitochondrial database:</b><br>
-        {{annotations.Helix_haplogroups_homoplasmy}}
-      </div>
-    </div>
-    <div class="card mt-3"">
-      <div class="card-header">
-        Population Frequencies
-      </div>
-      <div class="card-body">
-        <b>GnomAD:</b><br>
-        {{annotations.popCounts}}
+        {{if annotations.Helix_haplogroups_homoplasmy != null}}
+        <table class="table table-sm" id="table-helix-frequencies"></table>
+        <canvas id="plot-helix-frequencies" style="max-height: 150px;"></canvas>
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
       </div>
     </div>
     {{end}}
@@ -87,6 +88,19 @@
     </div>
     <div class="card mt-3"">
       <div class="card-header">
+        Population Frequencies
+      </div>
+      <div class="card-body">
+        <b>GnomAD:</b><br>
+        {{if annotations.popCounts != null}}
+        <canvas id="plot-population-frequencies" style="max-height: 150px;"></canvas>
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
+      </div>
+    </div>
+    <div class="card mt-3"">
+      <div class="card-header">
         Functional Predictions
       </div>
       <div class="card-body">
@@ -111,3 +125,21 @@
     </div>
   </div>
 </div>
+
+<script>
+
+{{if minimal == false}}
+  {{if annotations.hapCounts != null}}
+  {{piechart("plot-gnomad-frequencies", annotations.hapCounts)}}
+  {{end}}
+
+  {{if annotations.Helix_haplogroups_homoplasmy != null}}
+  {{piechart("plot-helix-frequencies", annotations.Helix_haplogroups_homoplasmy)}}
+  {{end}}
+{{end}}
+
+{{if annotations.popCounts != null}}
+{{piechart("plot-population-frequencies", annotations.popCounts)}}
+{{end}}
+
+</script>
