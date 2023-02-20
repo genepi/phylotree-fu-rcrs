@@ -6,6 +6,7 @@
         <b>Position:</b> {{decimal(toNumber(position))}}<br>
         <b>Reference allele:</b> {{ref}}<br>
         <b>Alternate allele:</b> {{alt}}<br>
+        {{if alt != "INS" && alt != "DEL"}}
         <b>Amino Acid Change:</b> {{annotations.AAC}}<br>
         <b>MapLocus	:</b> {{annotations.Maplocus}} ({{annotations.Category}})<br>
         <br><b>Sequence:</b><br>
@@ -13,8 +14,10 @@
         <a href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&highlight=hg38.chrM%3A{{position}}-{{position}}" target="_blank">
           View
         </a>
+        {{end}}
       </div>
     </div>
+    
     {{if minimal == false}}
     <div class="card mt-3"">
       <div class="card-header">
@@ -51,10 +54,10 @@
         <b>GnomAD</b><br>
         {{if annotations.AF_hom != null && annotations.AF_het != null}}
         Homoplasmic AF ({{formatNumber(toNumber(annotations.AF_hom))}})<br>
-        <div class="progress" style="height: 5px;">
+        <div class="progress" style="height: 5px;  margin-bottom: 15px;">
           <div role="progressbar" aria-valuenow="{{annotations.AF_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_hom) * 100}}%;">
           </div>
-        </div><br>
+        </div>
         Heteroplasmic AF ({{formatNumber(toNumber(annotations.AF_het))}})<br>
         <div class="progress" style="height: 5px;">
           <div role="progressbar" aria-valuenow="{{annotations.AF_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_het) * 100}}%;">
@@ -69,10 +72,10 @@
         <b>Helix Mitochondrial database</b><br>
         {{if annotations.Helix_vaf_hom != null && annotations.Helix_vaf_het != null && annotations.Helix_vaf_hom != "" && annotations.Helix_vaf_het != ""}}
         Homoplasmic AF ({{formatNumber(toNumber(annotations.Helix_vaf_hom))}})<br>
-        <div class="progress" style="height: 5px;">
+        <div class="progress" style="height: 5px;  margin-bottom: 15px;">
           <div role="progressbar" aria-valuenow="{{annotations.Helix_vaf_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Helix_vaf_hom) * 100}}%;">
           </div>
-        </div><br>
+        </div>
         Heteroplasmic AF ({{formatNumber(toNumber(annotations.Helix_vaf_het))}})<br>
         <div class="progress" style="height: 5px;">
           <div role="progressbar" aria-valuenow="{{annotations.Helix_vaf_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Helix_vaf_het) * 100}}%;">
@@ -91,12 +94,48 @@
         Population Frequencies
       </div>
       <div class="card-body">
-        <b>GnomAD:</b><br>
-        {{if annotations.popCounts != null}}
-        <canvas id="plot-population-frequencies" style="max-height: 150px;"></canvas>
+        {{
+          macro pop_label(id)
+            if (id == "afr")
+              return "African/African American"
+            elseif (id == "ami")
+              return "Amish"
+            elseif (id == "amr")
+              return "Latino/Admixed American"
+            elseif (id == "asj")
+              return "Ashkenazi Jewish"
+            elseif (id == "eas")
+              return "East Asian"
+            elseif (id == "fin")
+              return "European (Finnish)"
+            elseif (id == "nfe")
+              return "European (non-Finnish)"
+            elseif (id == "oth")
+              return "Other"
+            elseif (id == "sas")
+              return "South Asian"
+            elseif (id == "mid")
+              return "Middle Eastern"
+            else
+              return id
+            end
+          end
+        }}
+
+        {{if annotations.popFreq != null}}
+        {{for item in fromJson(annotations.popFreq)}}
+        {{pop_label(item[0])}} ({{formatNumber(toNumber(item[1]))}})
+        <div class="progress" style="height: 5px; margin-bottom: 15px;">
+          <div role="progressbar" aria-valuenow="{{item[1]}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(item[1]) * 100}}%;">
+          </div>
+        </div>
+        {{end}}
         {{else}}
         <i>Variant not available</i>
         {{end}}
+        <div class="text-right" style="margin-top: 5px;">
+          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomeAD 3.1</a></small>
+        </div>
       </div>
     </div>
     <div class="card mt-3"">
@@ -136,10 +175,6 @@
   {{if annotations.Helix_haplogroups_homoplasmy != null}}
   {{piechart("plot-helix-frequencies", annotations.Helix_haplogroups_homoplasmy)}}
   {{end}}
-{{end}}
-
-{{if annotations.popCounts != null}}
-{{piechart("plot-population-frequencies", annotations.popCounts)}}
 {{end}}
 
 </script>
