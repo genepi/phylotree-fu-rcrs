@@ -86,6 +86,8 @@ clusters:
     color: "#992f7c"
   - label: "R"
     color: "#47011f"
+    nodes:
+       - "R0"
   - label: "X"
     color: "#051155"
   - label: "W"
@@ -100,6 +102,7 @@ clusters:
       - "B6"
       - "B5"
       - "B4"
+      - "B4'5"
   - label: "F"
     color: "#08a29a"
   - label: "S"
