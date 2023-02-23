@@ -66,13 +66,83 @@ genes:
 source:
   - "Weissensteiner H, Pacher D, Kloss-Brandstätter A, Forer L, Specht G, Bandelt HJ, Kronenberg F, Salas A, Schönherr S. HaploGrep 2: mitochondrial haplogroup classification in the era of high-throughput sequencing. Nucleic Acids Res. 2016 Jul 8;44(W1):W58-63. doi: 10.1093/nar/gkw233. Epub 2016 Apr 15. PMID: 27084951; PMCID: PMC4987869."
   - "Dür A, Huber N, Parson W. Fine-Tuning Phylogenetic Alignment and Haplogrouping of mtDNA Sequences. Int J Mol Sci. 2021 May 27;22(11):5747. doi: 10.3390/ijms22115747. PMID: 34072215; PMCID: PMC8198973."
-labels:
-  filename: labels.txt
-  groups:
-    - Macro-Haplogroup
-    - Phylotree-Subtree
-    - Macro-Clade
-    - Clade
+clusters:
+  - label: "K"
+    color: "#d6a090"
+  - label: "U"
+    color: "#fe3b1e"
+  - label: "T"
+    color: "#a12c32"
+  - label: "J"
+    color: "#fa2f7a"
+  - label: "H"
+    color: "#fb9fda"
+    nodes:
+      - "H"
+      - "H2a2a1"
+  - label: "V"
+    color: "#e61cf7"
+  - label: "HV"
+    color: "#992f7c"
+  - label: "R"
+    color: "#47011f"
+    nodes:
+       - "R0"
+  - label: "X"
+    color: "#051155"
+  - label: "W"
+    color: "#4f02ec"
+  - label: "I"
+    color: "#2d69cb"
+  - label: "P"
+    color: "#00a6ee"
+  - label: "B"
+    color: "#6febff"
+    nodes:
+      - "B6"
+      - "B5"
+      - "B4"
+      - "B4'5"
+  - label: "F"
+    color: "#08a29a"
+  - label: "S"
+    color: "#2a666a"
+  - label: "O"
+    color: "#063619"
+  - label: "A"
+    color: "#4a4957"
+  - label: "Y"
+    color: "#8e7ba4"
+  - label: "N"
+    color: "#b7c0ff"
+  - label: "D"
+    color: "#acbe9c"
+  - label: "Q"
+    color: "#827c70"
+  - label: "G"
+    color: "#5a3b1c"
+  - label: "E"
+    color: "#ae6507"
+  - label: "Z"
+    color: "#f7aa30"
+  - label: "C"
+    color: "#f4ea5c"
+  - label: "M"
+    color: "#9b9500"
+  - label: "L3"
+    color: "#566204"
+  - label: "L4"
+    color: "#11963b"
+  - label: "L6"
+    color: "#51e113"
+  - label: "L2"
+    color: "#08fdcc"
+  - label: "L5"
+    color: "#063619"
+  - label: "L1"
+    color: "#000000"
+  - label: "L0"
+    color: "#00FF00"
 template: annotations/template.html
 annotations:
   - filename: annotations/MitImpact_db_3.1.0.sorted.txt.gz
@@ -99,8 +169,8 @@ annotations:
     properties:
       - name: hapCounts
         column: hapCounts
-      - name: popCounts
-        column: popCounts
+      - name: popFreq
+        column: popFreq
   - filename: annotations/rCRS_annotation_2023-02-16.txt.gz
     refAllele: Ref
     altAllele: Alt
