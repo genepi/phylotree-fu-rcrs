@@ -17,7 +17,7 @@
         {{end}}
       </div>
     </div>
-    
+
     {{if minimal == false}}
     <div class="card mt-3"">
       <div class="card-header">
@@ -169,11 +169,11 @@
 
 {{if minimal == false}}
   {{if annotations.hapCounts != null}}
-  {{piechart("plot-gnomad-frequencies", annotations.hapCounts)}}
+  {{piechart("plot-gnomad-frequencies", piechartData(annotations.hapCounts, tree))}}
   {{end}}
 
   {{if annotations.Helix_haplogroups_homoplasmy != null}}
-  {{piechart("plot-helix-frequencies", annotations.Helix_haplogroups_homoplasmy)}}
+  {{piechart("plot-helix-frequencies", piechartData(annotations.Helix_haplogroups_homoplasmy, tree))}}
   {{end}}
 {{end}}
 
