@@ -66,38 +66,170 @@ genes:
 source:
   - "Weissensteiner H, Pacher D, Kloss-Brandstätter A, Forer L, Specht G, Bandelt HJ, Kronenberg F, Salas A, Schönherr S. HaploGrep 2: mitochondrial haplogroup classification in the era of high-throughput sequencing. Nucleic Acids Res. 2016 Jul 8;44(W1):W58-63. doi: 10.1093/nar/gkw233. Epub 2016 Apr 15. PMID: 27084951; PMCID: PMC4987869."
   - "Dür A, Huber N, Parson W. Fine-Tuning Phylogenetic Alignment and Haplogrouping of mtDNA Sequences. Int J Mol Sci. 2021 May 27;22(11):5747. doi: 10.3390/ijms22115747. PMID: 34072215; PMCID: PMC8198973."
+populations:
+  - id: "afr"
+    label: "African/African American"
+    color: "#941494"
+  - id:  "nfe"
+    label: "European (non-Finnish)"
+    color: "#6aa5cd"
+  - id:  "fin"
+    label: "European (Finnish)"
+    color: "#002f6c"
+  - id:  "ami"
+    label: "Amish"
+    color: "#6ab8cd"
+  - id:  "asj"
+    label: "Ashkenazi Jewish"
+    color: "#6a8bcd"
+  - id:  "mid"
+    label: "Middle Eastern"
+    color: "#b5960b"
+  - id:  "sas"
+    label: "South Asian"
+    color: "#ff9912"
+  - id:  "eas"
+    label: "East Asian"
+    color: "#108c44"
+  - id:  "amr"
+    label: "Latino/Admixed American"
+    color: "#ed1e24"
+  - id:  "oth"
+    label: "Other"
+    color: "#abb9b9"
+
+clusters:
 clusters:
   - label: "K"
     color: "#d6a090"
+    frequencies:
+      afr: 0.02
+      nfe: 0.71
+      fin: 0.07
+      asj: 0.17
+      amr: 0.01
+      oth: 0.01
   - label: "U"
     color: "#fe3b1e"
+    frequencies:
+      afr: 0.03
+      nfe: 0.64
+      fin: 0.21
+      ami: 0.03
+      asj: 0.01
+      sas: 0.05
+      amr: 0.02
+      oth: 0.01
   - label: "T"
     color: "#a12c32"
+    frequencies:
+      afr: 0.02
+      nfe: 0.84
+      fin: 0.08
+      asj: 0.02
+      sas: 0.01
+      amr: 0.01
+      oth: 0.01
   - label: "J"
     color: "#fa2f7a"
+    frequencies:
+      afr: 0.02
+      nfe: 0.8
+      fin: 0.08
+      asj: 0.03
+      sas: 0.01
+      amr: 0.04
+      oth: 0.01
   - label: "H"
     color: "#fb9fda"
     nodes:
       - "H"
       - "H2a2a1"
+    frequencies:
+      afr: 0.02
+      nfe: 0.76
+      fin: 0.15
+      ami: 0.01
+      asj: 0.02
+      amr: 0.02
+      oth: 0.01
   - label: "V"
     color: "#e61cf7"
+    frequencies:
+      afr: 0.01
+      nfe: 0.7
+      fin: 0.22
+      asj: 0.04
+      amr: 0.01
+      oth: 0.01
   - label: "HV"
     color: "#992f7c"
+    frequencies:
+      afr: 0.01
+      nfe: 0.78
+      fin: 0.03
+      asj: 0.1
+      sas: 0.06
+      amr: 0.01
+      oth: 0.01
   - label: "R"
     color: "#47011f"
+    frequencies:
+      afr: 0.01
+      nfe: 0.18
+      fin: 0.07
+      asj: 0.07
+      mid: 0.01
+      sas: 0.38
+      eas: 0.26
+      amr: 0.01
+      oth: 0.01
     nodes:
        - "R0"
   - label: "X"
     color: "#051155"
+    frequencies:
+      afr: 0.02
+      nfe: 0.74
+      fin: 0.11
+      ami: 0.05
+      asj: 0.02
+      sas: 0.02
+      amr: 0.03
+      oth: 0.01
   - label: "W"
     color: "#4f02ec"
+    frequencies:
+      afr: 0.02
+      nfe: 0.62
+      fin: 0.26
+      asj: 0.03
+      sas: 0.05
+      amr: 0.01
+      oth: 0.02
   - label: "I"
     color: "#2d69cb"
+    frequencies:
+      afr: 0.03
+      nfe: 0.8
+      fin: 0.12
+      asj: 0.03
+      sas: 0.01
+      amr: 0.01
+      oth: 0.01
   - label: "P"
     color: "#00a6ee"
+    frequencies:
+      nfe: 0.29
+      eas: 0.71
   - label: "B"
     color: "#6febff"
+    frequencies:
+      afr: 0.06
+      nfe: 0.01
+      eas: 0.14
+      amr: 0.77
+      oth: 0.02
     nodes:
       - "B6"
       - "B5"
@@ -105,44 +237,130 @@ clusters:
       - "B4'5"
   - label: "F"
     color: "#08a29a"
+    frequencies:
+      afr: 0.07
+      nfe: 0.02
+      sas: 0.08
+      eas: 0.81
+      amr: 0.01
   - label: "S"
     color: "#2a666a"
   - label: "O"
     color: "#063619"
   - label: "A"
     color: "#4a4957"
-  - label: "Y"
-    color: "#8e7ba4"
+    frequencies:
+      afr: 0.04
+      nfe: 0.02
+      eas: 0.03
+      amr: 0.89
+      oth: 0.03
   - label: "N"
     color: "#b7c0ff"
-  - label: "D"
-    color: "#acbe9c"
+    frequencies:
+      afr: 0.01
+      nfe: 0.44
+      fin: 0.02
+      asj: 0.33
+      sas: 0.03
+      eas: 0.14
+      oth: 0.02
   - label: "Q"
     color: "#827c70"
-  - label: "G"
-    color: "#5a3b1c"
   - label: "E"
     color: "#ae6507"
-  - label: "Z"
-    color: "#f7aa30"
-  - label: "C"
-    color: "#f4ea5c"
+    frequencies:
+      afr: 0.32
+      nfe: 0.12
+      eas: 0.32
+      amr: 0.06
+      oth: 0.18
   - label: "M"
     color: "#9b9500"
-  - label: "L3"
-    color: "#566204"
-  - label: "L4"
-    color: "#11963b"
-  - label: "L6"
-    color: "#51e113"
-  - label: "L2"
-    color: "#08fdcc"
-  - label: "L5"
-    color: "#063619"
-  - label: "L1"
-    color: "#000000"
+    frequencies:
+      afr: 0.09
+      nfe: 0.05
+      asj: 0.01
+      sas: 0.59
+      eas: 0.26
+  - label: "Z"
+    color: "#f7aa30"
+    frequencies:
+      nfe: 0.12
+      fin: 0.51
+      sas: 0.04
+      eas: 0.31
+      oth: 0.01
+  - label: "C"
+    color: "#f4ea5c"
+    frequencies:
+      afr: 0.06
+      nfe: 0.04
+      sas: 0.01
+      eas: 0.05
+      amr: 0.79
+      oth: 0.04
+  - label: "D"
+    color: "#acbe9c"
+    frequencies:
+      afr: 0.06
+      nfe: 0.05
+      fin: 0.02
+      sas: 0.04
+      eas: 0.51
+      amr: 0.3
+      oth: 0.02
+  - label: "G"
+    color: "#5a3b1c"
+    frequencies:
+      afr: 0.01
+      nfe: 0.19
+      fin: 0.05
+      sas: 0.09
+      eas: 0.66
   - label: "L0"
-    color: "#00FF00"
+    color: "#fcebec"
+    frequencies:
+      afr: 0.91
+      nfe: 0.02
+      amr: 0.05
+      oth: 0.02
+  - label: "L1"
+    color: "#f6cdd1"
+    frequencies:
+      afr: 0.93
+      nfe: 0.01
+      amr: 0.05
+      oth: 0.01
+  - label: "L2"
+    color: "#e56874"
+    frequencies:
+      afr: 0.93
+      nfe: 0.01
+      asj: 0.01
+      amr: 0.03
+      oth: 0.02
+  - label: "L3"
+    color: "#dc3545"
+    frequencies:
+      afr: 0.93
+      nfe: 0.01
+      amr: 0.04
+      oth: 0.02
+  - label: "L4"
+    color: "#a52834"
+    frequencies:
+      afr: 0.94
+      nfe: 0.02
+      amr: 0.03
+      oth: 0.02
+  - label: "L5"
+    color: "#6e1b23"
+    frequencies:
+      oth: 1
+  - label: "L6"
+    color: "#370d11"
+
 template: annotations/template.html
 annotations:
   - filename: annotations/MitImpact_db_3.1.0.sorted.txt.gz

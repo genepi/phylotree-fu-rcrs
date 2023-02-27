@@ -67,7 +67,7 @@
           <p><i>Variant not available in gnomAD</i></p>
         {{end}}
         <div class="text-right" style="margin-top: 5px;">
-          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomeAD 3.1</a></small>
+          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomAD 3.1</a></small>
         </div>
         <b>Helix Mitochondrial database</b><br>
         {{if annotations.Helix_vaf_hom != null && annotations.Helix_vaf_het != null && annotations.Helix_vaf_hom != "" && annotations.Helix_vaf_het != ""}}
@@ -94,39 +94,13 @@
         Population Frequencies
       </div>
       <div class="card-body">
-        {{
-          macro pop_label(id)
-            if (id == "afr")
-              return "African/African American"
-            elseif (id == "ami")
-              return "Amish"
-            elseif (id == "amr")
-              return "Latino/Admixed American"
-            elseif (id == "asj")
-              return "Ashkenazi Jewish"
-            elseif (id == "eas")
-              return "East Asian"
-            elseif (id == "fin")
-              return "European (Finnish)"
-            elseif (id == "nfe")
-              return "European (non-Finnish)"
-            elseif (id == "oth")
-              return "Other"
-            elseif (id == "sas")
-              return "South Asian"
-            elseif (id == "mid")
-              return "Middle Eastern"
-            else
-              return id
-            end
-          end
-        }}
 
         {{if annotations.popFreq != null}}
         {{for item in fromJson(annotations.popFreq)}}
-        {{pop_label(item[0])}} ({{formatNumber(toNumber(item[1]))}})
+        {{population = tree.getPopulationById(item[0])}}
+        {{population.getLabel()}} ({{formatNumber(toNumber(item[1]))}})
         <div class="progress" style="height: 5px; margin-bottom: 15px;">
-          <div role="progressbar" aria-valuenow="{{item[1]}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(item[1]) * 100}}%;">
+          <div role="progressbar" aria-valuenow="{{item[1]}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(item[1]) * 100}}%; background-color: {{population.getColor()}}">
           </div>
         </div>
         {{end}}
@@ -134,7 +108,7 @@
         <i>Variant not available</i>
         {{end}}
         <div class="text-right" style="margin-top: 5px;">
-          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomeAD 3.1</a></small>
+          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomAD 3.1</a></small>
         </div>
       </div>
     </div>
