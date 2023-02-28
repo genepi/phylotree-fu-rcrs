@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-12 col-md-6">
+    <div class="card mt-3"">
+      <div class="card-body">
+        <b>Reference:</b> {{reference}}<br>
+        <b>Position:</b> {{decimal(toNumber(position))}}<br>
+        <b>Reference allele:</b> {{ref}}<br>
+        <b>Alternate allele:</b> {{alt}}<br>
+        {{if alt != "INS" && alt != "DEL"}}
+        <b>Amino Acid Change:</b> {{annotations.AAC}}<br>
+        <b>MapLocus	:</b> {{annotations.Maplocus}} ({{annotations.Category}})<br>
+        <br><b>Sequence:</b><br>
+        <code>...{{annotations.rCRS_Surr_seq}}...</code>&nbsp;&nbsp;&nbsp;
+        <a href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&highlight=hg38.chrM%3A{{position}}-{{position}}" target="_blank">
+          View
+        </a>
+        {{end}}
+      </div>
+    </div>
+
+    {{if minimal == false}}
+    <div class="card mt-3"">
+      <div class="card-header">
+        Haplogroup Frequencies
+      </div>
+      <div class="card-body">
+        <b>Haplogroup Defining:</b> Yes<br><br>
+        <b>GnomAD:</b><br>
+        {{if annotations.hapCounts != null}}
+        <table id="table-gnomad-frequencies"></table>
+        <canvas id="plot-gnomad-frequencies" style="max-height: 150px;"></canvas>
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
+        <br><br>
+        <b>Helix Mitochondrial database:</b><br>
+        {{if annotations.Helix_haplogroups_homoplasmy != null}}
+        <table class="table table-sm" id="table-helix-frequencies"></table>
+        <canvas id="plot-helix-frequencies" style="max-height: 150px;"></canvas>
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
+      </div>
+    </div>
+    {{end}}
+  </div>
+
+  <div class="col-12 col-md-6">
+    <div class="card mt-3">
+      <div class="card-header">
+        Allele Frequencies
+      </div>
+      <div class="card-body">
+        <b>GnomAD</b><br>
+        {{if annotations.AF_hom != null && annotations.AF_het != null}}
+        Homoplasmic AF ({{formatNumber(toNumber(annotations.AF_hom))}})<br>
+        <div class="progress" style="height: 5px;  margin-bottom: 15px;">
+          <div role="progressbar" aria-valuenow="{{annotations.AF_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_hom) * 100}}%;">
+          </div>
+        </div>
+        Heteroplasmic AF ({{formatNumber(toNumber(annotations.AF_het))}})<br>
+        <div class="progress" style="height: 5px;">
+          <div role="progressbar" aria-valuenow="{{annotations.AF_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.AF_het) * 100}}%;">
+          </div>
+        </div>
+        {{else}}
+          <p><i>Variant not available in gnomAD</i></p>
+        {{end}}
+        <div class="text-right" style="margin-top: 5px;">
+          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomAD 3.1</a></small>
+        </div>
+        <b>Helix Mitochondrial database</b><br>
+        {{if annotations.Helix_vaf_hom != null && annotations.Helix_vaf_het != null && annotations.Helix_vaf_hom != "" && annotations.Helix_vaf_het != ""}}
+        Homoplasmic AF ({{formatNumber(toNumber(annotations.Helix_vaf_hom))}})<br>
+        <div class="progress" style="height: 5px;  margin-bottom: 15px;">
+          <div role="progressbar" aria-valuenow="{{annotations.Helix_vaf_hom}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Helix_vaf_hom) * 100}}%;">
+          </div>
+        </div>
+        Heteroplasmic AF ({{formatNumber(toNumber(annotations.Helix_vaf_het))}})<br>
+        <div class="progress" style="height: 5px;">
+          <div role="progressbar" aria-valuenow="{{annotations.Helix_vaf_het}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(annotations.Helix_vaf_het) * 100}}%;">
+          </div>
+        </div>
+        {{else}}
+          <p><i>Variant not available.</i></p>
+        {{end}}
+        <div class="text-right" style="margin-top: 5px;">
+          <small>Source: <a href="https://www.helix.com/pages/mitochondrial-variant-database" target="_blank">Helix Mitochondrial database 20200327</a></small>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-3"">
+      <div class="card-header">
+        Population Frequencies
+      </div>
+      <div class="card-body">
+
+        {{if annotations.popFreq != null}}
+        {{for item in fromJson(annotations.popFreq)}}
+        {{population = tree.getPopulationById(item[0])}}
+        {{population.getLabel()}} ({{formatNumber(toNumber(item[1]))}})
+        <div class="progress" style="height: 5px; margin-bottom: 15px;">
+          <div role="progressbar" aria-valuenow="{{item[1]}}" aria-valuemax="1" class="progress-bar" style="width: {{toNumber(item[1]) * 100}}%; background-color: {{population.getColor()}}">
+          </div>
+        </div>
+        {{end}}
+        {{else}}
+        <i>Variant not available</i>
+        {{end}}
+        <div class="text-right" style="margin-top: 5px;">
+          <small>Source: <a href="https://gnomad.broadinstitute.org/" target="_blank">gnomAD 3.1</a></small>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-3"">
+      <div class="card-header">
+        Functional Predictions
+      </div>
+      <div class="card-body">
+        <b>PhastCons_100V:</b> {{if annotations.PhastCons_100V != null}}{{annotations.PhastCons_100V}}{{else}}-{{end}}<br>
+        <b>APOGEE:</b> {{if annotations.APOGEE != null}} {{annotations.APOGEE}} ({{annotations.APOGEE_score}}){{else}}-{{end}} <a href="https://mitimpact.css-mendel.it/description#apogee" target="_blank"><i class="fas fa-question-circle"></i></a><br>
+        <b>MtoolBox:</b> {{if annotations.MtoolBox != null}} {{annotations.MtoolBox}} ({{annotations.MtoolBox_DS}}){{else}}-{{end}}<br>
+        <b>MutPred:</b> {{if annotations.MutPred_Score != null && annotations.MutPred_Score != ""}} {{annotations.MutPred_Score}}{{else}}-{{end}} <a href="https://www.sciencedirect.com/science/article/pii/S000292971100098X" target="_blank"><i class="fas fa-question-circle"></i></a><br>
+        <div class="text-right" style="margin-top: 5px;">
+          <small>Source: <a href="https://mitimpact.css-mendel.it/" target="_blank">Mitimpact 3D</a></small>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-3"">
+      <div class="card-header">
+        External Resources
+      </div>
+      <div class="card-body">
+        <a href="https://gnomad.broadinstitute.org/variant/M-{{position}}-{{ref}}-{{alt}}?dataset=gnomad_r3" target="_blank">gnomAd</a><br>
+        <a href="https://www.mitovisualize.org/variant/M-{{position}}-{{ref}}-{{alt}}" target="_blank">MitoVisualize</a><br>
+        <a href="https://mitomap.org/cgi-bin/search_allele?variant={{position}}{{ref}}>{{alt}}" target="_blank">Mitomap</a><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+{{if minimal == false}}
+  {{if annotations.hapCounts != null}}
+  {{piechart("plot-gnomad-frequencies", piechartData(annotations.hapCounts, tree))}}
+  {{end}}
+
+  {{if annotations.Helix_haplogroups_homoplasmy != null}}
+  {{piechart("plot-helix-frequencies", piechartData(annotations.Helix_haplogroups_homoplasmy, tree))}}
+  {{end}}
+{{end}}
+
+</script>
