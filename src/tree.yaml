@@ -99,9 +99,8 @@ populations:
     color: "#abb9b9"
 
 clusters:
-clusters:
   - label: "K"
-    color: "#d6a090"
+    color: "#C21F5B"
     frequencies:
       afr: 0.02
       nfe: 0.71
@@ -110,7 +109,7 @@ clusters:
       amr: 0.01
       oth: 0.01
   - label: "U"
-    color: "#fe3b1e"
+    color: "#FBC02C"
     frequencies:
       afr: 0.03
       nfe: 0.64
@@ -121,7 +120,7 @@ clusters:
       amr: 0.02
       oth: 0.01
   - label: "T"
-    color: "#a12c32"
+    color: "#FF5722"
     frequencies:
       afr: 0.02
       nfe: 0.84
@@ -131,7 +130,7 @@ clusters:
       amr: 0.01
       oth: 0.01
   - label: "J"
-    color: "#fa2f7a"
+    color: "#BF360C"
     frequencies:
       afr: 0.02
       nfe: 0.8
@@ -141,7 +140,7 @@ clusters:
       amr: 0.04
       oth: 0.01
   - label: "H"
-    color: "#fb9fda"
+    color: "#8BC34A"
     nodes:
       - "H"
       - "H2a2a1"
@@ -154,7 +153,7 @@ clusters:
       amr: 0.02
       oth: 0.01
   - label: "V"
-    color: "#e61cf7"
+    color: "#C5CAE9"
     frequencies:
       afr: 0.01
       nfe: 0.7
@@ -163,7 +162,7 @@ clusters:
       amr: 0.01
       oth: 0.01
   - label: "HV"
-    color: "#992f7c"
+    color: "#7B21A2"
     frequencies:
       afr: 0.01
       nfe: 0.78
@@ -173,7 +172,7 @@ clusters:
       amr: 0.01
       oth: 0.01
   - label: "R"
-    color: "#47011f"
+    color: "#F8BBD0"
     frequencies:
       afr: 0.01
       nfe: 0.18
@@ -187,7 +186,7 @@ clusters:
     nodes:
        - "R0"
   - label: "X"
-    color: "#051155"
+    color: "#E1BEE7"
     frequencies:
       afr: 0.02
       nfe: 0.74
@@ -198,7 +197,7 @@ clusters:
       amr: 0.03
       oth: 0.01
   - label: "W"
-    color: "#4f02ec"
+    color: "#3F51B5"
     frequencies:
       afr: 0.02
       nfe: 0.62
@@ -208,7 +207,7 @@ clusters:
       amr: 0.01
       oth: 0.02
   - label: "I"
-    color: "#2d69cb"
+    color: "#AED581"
     frequencies:
       afr: 0.03
       nfe: 0.8
@@ -218,12 +217,12 @@ clusters:
       amr: 0.01
       oth: 0.01
   - label: "P"
-    color: "#00a6ee"
+    color: "#253137"
     frequencies:
       nfe: 0.29
       eas: 0.71
   - label: "B"
-    color: "#6febff"
+    color: "#BA68C8"
     frequencies:
       afr: 0.06
       nfe: 0.01
@@ -236,7 +235,7 @@ clusters:
       - "B4"
       - "B4'5"
   - label: "F"
-    color: "#08a29a"
+    color: "#FFCCBC"
     frequencies:
       afr: 0.07
       nfe: 0.02
@@ -244,11 +243,11 @@ clusters:
       eas: 0.81
       amr: 0.01
   - label: "S"
-    color: "#2a666a"
+    color: "#9C27B0"
   - label: "O"
-    color: "#063619"
+    color: "#90A4AE"
   - label: "A"
-    color: "#4a4957"
+    color: "#E92663"
     frequencies:
       afr: 0.04
       nfe: 0.02
@@ -256,7 +255,7 @@ clusters:
       amr: 0.89
       oth: 0.03
   - label: "N"
-    color: "#b7c0ff"
+    color: "#0488D1"
     frequencies:
       afr: 0.01
       nfe: 0.44
@@ -266,9 +265,9 @@ clusters:
       eas: 0.14
       oth: 0.02
   - label: "Q"
-    color: "#827c70"
+    color: "#7986CB"
   - label: "E"
-    color: "#ae6507"
+    color: "#E64A18"
     frequencies:
       afr: 0.32
       nfe: 0.12
@@ -276,7 +275,7 @@ clusters:
       amr: 0.06
       oth: 0.18
   - label: "M"
-    color: "#9b9500"
+    color: "#03A9F4"
     frequencies:
       afr: 0.09
       nfe: 0.05
@@ -284,7 +283,7 @@ clusters:
       sas: 0.59
       eas: 0.26
   - label: "Z"
-    color: "#f7aa30"
+    color: "#F06292"
     frequencies:
       nfe: 0.12
       fin: 0.51
@@ -292,7 +291,7 @@ clusters:
       eas: 0.31
       oth: 0.01
   - label: "C"
-    color: "#f4ea5c"
+    color: "#F67F17"
     frequencies:
       afr: 0.06
       nfe: 0.04
@@ -301,7 +300,7 @@ clusters:
       amr: 0.79
       oth: 0.04
   - label: "D"
-    color: "#acbe9c"
+    color: "#19237E"
     frequencies:
       afr: 0.06
       nfe: 0.05
@@ -311,7 +310,7 @@ clusters:
       amr: 0.3
       oth: 0.02
   - label: "G"
-    color: "#5a3b1c"
+    color: "#03579B"
     frequencies:
       afr: 0.01
       nfe: 0.19
@@ -319,21 +318,21 @@ clusters:
       sas: 0.09
       eas: 0.66
   - label: "L0"
-    color: "#fcebec"
+    color: "#CFD8DC"
     frequencies:
       afr: 0.91
       nfe: 0.02
       amr: 0.05
       oth: 0.02
   - label: "L1"
-    color: "#f6cdd1"
+    color: "#DDEDC8"
     frequencies:
       afr: 0.93
       nfe: 0.01
       amr: 0.05
       oth: 0.01
   - label: "L2"
-    color: "#e56874"
+    color: "#689F38"
     frequencies:
       afr: 0.93
       nfe: 0.01
@@ -341,25 +340,30 @@ clusters:
       amr: 0.03
       oth: 0.02
   - label: "L3"
-    color: "#dc3545"
+    color: "#607D8B"
     frequencies:
       afr: 0.93
       nfe: 0.01
       amr: 0.04
       oth: 0.02
   - label: "L4"
-    color: "#a52834"
+    color: "#B3E5FC"
     frequencies:
       afr: 0.94
       nfe: 0.02
       amr: 0.03
       oth: 0.02
   - label: "L5"
-    color: "#6e1b23"
+    color: "#303F9F"
     frequencies:
       oth: 1
   - label: "L6"
-    color: "#370d11"
+    color: "#33691D"
+  - label: "Y"
+    color: "#455A64"
+    frequencies:
+      nfe: 0.08
+      eas: 0.92
 
 template: annotations/template.html
 annotations:
