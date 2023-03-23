@@ -13,12 +13,15 @@ aacTable: mtdna.aac.txt
 alignmentRules: rules.csv
 hotspots:
   - "315.1C"
+  - "315.2C"
   - "309.1C"
   - "309.1CC"
+  - "309.2C"
   - "523d"
   - "524d"
   - "524.1AC"
   - "524.1ACAC"
+  - "524.1ACACAC"
   - "3107d"
   - "16182C"
   - "16183C"
