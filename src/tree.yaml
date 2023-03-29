@@ -376,12 +376,15 @@ annotations:
         column: Gene_symbol
       - name: PhastCons_100V
         column: PhastCons_100V
+        export: ScorePhastCons100V
       - name: MtoolBox
         column: MtoolBox
       - name: MtoolBox_DS
         column: MtoolBox_DS
+        export: ScoreMtoolBox
       - name: APOGEE_score
         column: APOGEE_score
+        export: ScoreAPOGEE
       - name: APOGEE
         column: APOGEE
   - filename: annotations/gnomad.frequencies.txt.gz
@@ -393,6 +396,7 @@ annotations:
         column: hapCounts
       - name: popFreq
         column: popFreq
+        export: PopFreqGnomeAD
   - filename: annotations/rCRS_annotation_2023-02-16.txt.gz
     refAllele: Ref
     altAllele: Alt
@@ -403,15 +407,20 @@ annotations:
       - name: Maplocus
         column: Maplocus
         show: true
+        export: Maplocus
       - name: AAC
         column: AAC
         show: true
+        export: AAC
       - name: MutPred_Score
         column: MutPred_Score
+        export: ScoresMutPred
       - name: Helix_vaf_het
         column: Helix_vaf_het
+        export: VafHelixHet
       - name: Helix_vaf_hom
         column: Helix_vaf_hom
+        export: VafHelixHom      
       - name: Category
         column: Category
       - name: Helix_haplogroups_homoplasmy
@@ -423,5 +432,7 @@ annotations:
     properties:
       - name: AF_hom
         column: AF_hom
+        export: VafGnomADHom
       - name: AF_het
         column: AF_het
+        export: VafGnomADHet
