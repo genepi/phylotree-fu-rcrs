@@ -1,33 +1,38 @@
-name: Build
-
+name: Create Release
 on:
   push:
     tags:
-      - 'v*'
+      - '[0-9]+*'
   pull_request:
-
 permissions:
   contents: write
-
+env:
+  NAME: ""   # leave empty to use the repo name, or set e.g. phylotree-fu-rcrs
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve name
+        id: meta
+        run: echo "name=${{ env.NAME || github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+
       - name: Build
-        run: make build
+        run: |
+          mkdir -p dist
+          cd src && zip -r9T "../dist/${{ steps.meta.outputs.name }}-${{ github.ref_name }}.zip" *
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: phylotree-fu-rcrs
-          path: dist/*.zip
+          name: ${{ steps.meta.outputs.name }}-${{ github.ref_name }}
+          path: dist/${{ steps.meta.outputs.name }}-${{ github.ref_name }}.zip
 
       - name: Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: "dist/phylotree-fu-rcrs-*.zip"
+          artifacts: "dist/${{ steps.meta.outputs.name }}-${{ github.ref_name }}.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
